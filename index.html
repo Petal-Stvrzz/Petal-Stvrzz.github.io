@@ -5,6 +5,37 @@
 <title>AquaProxxi.net ｡✧･ﾟ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+    :root{--bg:#0d0d0d; ... }   /* your existing CSS */
+
+    /* ←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←← */
+    /* ADD THE COLLAPSE CSS ANYWHERE HERE (I usually put it near the bottom) */
+    .collapsible-title {
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.3s ease;
+    }
+    .title-content {
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+        max-height: 500px;
+        opacity: 1;
+    }
+    .title-content.collapsed {
+        max-height: 0;
+        opacity: 0;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin: 0 !important;
+    }
+    .chevron {
+        display: inline-block;
+        transition: transform 0.3s ease;
+        margin-right: 8px;
+    }
+    .chevron.rotated {
+        transform: rotate(90deg);
+    }
+    /* ←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←← */
     :root{
         --bg:#0d0d0d; --bg2:#1c1c1c; --text:#e5e5e5;
         --accent:#4a90ff; --border:#333; --error:#ff5c5c; --success:#5cff8d;
@@ -39,32 +70,8 @@
     .theme-slot input[type=color]{width:40px;height:40px;border:none;cursor:pointer;}
     .theme-slot button{flex:1;padding:0.4rem;font-size:0.85rem;}
     .gradient-controls{display:flex;gap:0.3rem;}
-    .collapsible-title {
-    cursor: pointer;
-    user-select: none;
-    transition: all 0.3s ease;
-}
-.title-content {
-    overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.3s ease;
-    max-height: 500px;
-    opacity: 1;
-}
-.title-content.collapsed {
-    max-height: 0;
-    opacity: 0;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    margin: 0 !important;
-}
-.chevron {
-    display: inline-block;
-    transition: transform 0.3s ease;
-    margin-right: 8px;
-}
-.chevron.rotated {
-    transform: rotate(90deg);
-}
+    
+</style>
 </head>
 <body>
 <div class="toolbar">
@@ -76,13 +83,7 @@
     <button id="bookmarkBtn">Add Bookmark</button>
     <button id="themeBtn">Theme</button>
 </div>
-<div style="text-align:center; padding:1rem; background:rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,182,255,0.3);">
-  <h1 style="margin:0; font-size:2.2rem; font-family:'Comic Sans MS',cursive; background:linear-gradient(135deg,#ffb3ff,#b3e6ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
-    AquaProxxi.net ｡✧･ﾟ
-  </h1>
-  <p style="margin:6px 0 0; font-size:1.1rem; color:#ffb3ff; opacity:0.95;">
-    〜☆ Your hall-pass to the hidden depths of the internet!!1! ｡ﾟ(ﾟ^ω`ﾟ)ﾟ｡ 〜☆
-    <div onclick="toggleTitle()" class="collapsible-title" style="text-align:center; padding:1rem; background:rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,182,255,0.3); cursor:pointer;">
+<div onclick="toggleTitle()" class="collapsible-title" style="text-align:center; padding:1rem; background:rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,182,255,0.3); cursor:pointer;">
     <h1 id="mainTitle" style="margin:0; font-size:2.2rem; font-family:'Comic Sans MS',cursive; background:linear-gradient(135deg,#ffb3ff,#b3e6ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; display:inline;">
         <span class="chevron" id="chevron">▶</span> AquaProxxi.net ｡✧･ﾟ
     </h1>
@@ -258,6 +259,7 @@ function toggleTitle() {
 </div>
 
 </html>
+
 
 
 
